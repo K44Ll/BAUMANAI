@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaumanAI - Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- ========================= HEADER ========================= -->
+<header>
+    <nav class="header-nav">
+        {% if user.is_authenticated %}
+            <span>Olá, {{ user.username }}!</span>
+            <button onclick="window.location.href='{% url 'logout' %}'">Logout</button>
+        {% else %}
+            <button onclick="window.location.href='{% url 'login' %}'">Login</button>
+            <button onclick="window.location.href='{% url 'cadastro' %}'">Registrar</button>
+        {% endif %}
+        <button onclick="window.location.href='#'">Home</button>
+        <button onclick="window.location.href='{% url 'sobre' %}'">Sobre</button>
+        <button onclick="window.location.href='{% url 'avalie' %}'">Avalie-nos</button>
+        <button onclick="window.location.href='{% url 'chat' %}'">Chat</button>
+    </nav>
+</header>

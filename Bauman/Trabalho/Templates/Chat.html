@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaumanAI - Chat</title>
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="header-nav">
+            {% if user.is_authenticated %}
+                <span>Olá, {{ user.username }}!</span>
+                <button onclick="window.location.href='{% url 'logout' %}'">Logout</button>
+            {% else %}
+                <button onclick="window.location.href='{% url 'login' %}'">Login</button>
+                <button onclick="window.location.href='{% url 'cadastro' %}'">Registrar</button>
+            {% endif %}
+            <button onclick="window.location.href='{% url 'home' %}'">Home</button>
+            <button onclick="window.location.href='{% url 'sobre' %}'">Sobre</button>
+            <button onclick="window.location.href='{% url 'avalie' %}'">Avalie-nos</button>
+            <button onclick="window.location.href='{% url 'chat' %}'">Chat</button>
+            {% if user.is_staff %}
+                <button id="clear-chat" class="clear-chat-btn">Limpar Chat</button>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main class="chat-main">
+        <div class="chat-wrapper">
+            <div id="chat-box" class="chat-box">
+                <div class="chat-message bot">
+                    Olá! Eu sou BaumanAI, seu assistente filosófico. Pergunte-me algo!
+                </div>
+            </div>
+            <form id="chat-form" class="chat-form">
+                <input type="text" id="chat-input" placeholder="Digite sua mensagem..." autocomplete="off" required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </main>
+    <script src="{% static 'js/chat.js' %}"></script>
+</body>
+</html>

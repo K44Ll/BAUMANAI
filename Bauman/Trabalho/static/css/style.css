@@ -1,0 +1,215 @@
+/* ============================
+   RESET BÁSICO
+============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ============================
+   VARIÁVEIS DE CORES
+============================ */
+:root {
+  --preto: #0a0a0a;
+  --branco: #ffffff;
+  --azul: #092369;
+  --azule: #061936;
+  --roxo: #7c3aed;
+  --cinza-claro: rgba(255,255,255,0.1);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --chat-bg: rgba(20, 20, 20, 0.9);
+  --user-msg: #7c3aed;
+  --bot-msg: #061936;
+}
+
+/* ============================
+   BODY
+============================ */
+body {
+  background: linear-gradient(135deg, var(--preto), var(--azule), var(--roxo));
+  color: var(--branco);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ============================
+   HEADER
+============================ */
+header {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--cinza-claro);
+  border-radius: 0 0 16px 16px;
+}
+
+header button {
+  background: var(--azul);
+  color: var(--branco);
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+header button:hover {
+  background: var(--roxo);
+  transform: translateY(-2px);
+}
+
+/* ============================
+   MAIN
+============================ */
+main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-container {
+  background: var(--chat-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* ============================
+   CHAT BOX
+============================ */
+.chat-box {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* ============================
+   MENSAGENS
+============================ */
+.message {
+  max-width: 80%;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: var(--user-msg);
+  color: var(--branco);
+}
+
+.message.bot {
+  align-self: flex-start;
+  background: var(--bot-msg);
+  color: var(--branco);
+}
+
+/* ============================
+   FORMULÁRIO
+============================ */
+.chat-container {
+  width: 100%;             /* ocupa todo o main */
+  max-width: 600px;        /* limite de largura do chat */
+  display: flex;
+  flex-direction: column;
+  background: var(--chat-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* ============================
+   CHAT BOX
+============================ */
+.chat-box {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 500px;       /* limita altura */
+  overflow-y: auto;        /* scroll quando estourar */
+}
+
+/* ============================
+   FORMULÁRIO
+============================ */
+.chat-form {
+  display: flex;
+  padding: 0.5rem;
+  border-top: 1px solid var(--cinza-claro);
+  background: rgba(0,0,0,0.3);
+}
+
+.chat-form input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  margin-right: 0.5rem;
+  background: rgba(255,255,255,0.05);
+  color: var(--branco);
+}
+
+.chat-form button {
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: none;
+  background: var(--roxo);
+  color: var(--branco);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.chat-form button:hover {
+  background: var(--azul);
+}
+
+.admin-controls {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.2);
+}
+
+.admin-controls button {
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: none;
+  background: #ff4d4d; /* vermelho de alerta */
+  color: var(--text);
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admin-controls button:hover {
+  background: #e60000;
+}

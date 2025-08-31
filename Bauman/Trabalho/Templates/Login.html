@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaumanAI - Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- ========================= HEADER ========================= -->
+    <header>
+        <nav class="header-nav">
+            {% if user.is_authenticated %}
+                <span>Olá, {{ user.username }}!</span>
+                <button onclick="window.location.href='{% url 'logout' %}'">Logout</button>
+            {% else %}
+                <button onclick="window.location.href='{% url 'login' %}'">Login</button>
+                <button onclick="window.location.href='{% url 'cadastro' %}'">Registrar</button>
+            {% endif %}
+            <button onclick="window.location.href='{% url 'home' %}'">Home</button>
+            <button onclick="window.location.href='{% url 'sobre' %}'">Sobre</button>
+            <button onclick="window.location.href='{% url 'avalie' %}'">Avalie-nos</button>
+            <button onclick="window.location.href='{% url 'chat' %}'">Chat</button>
+        </nav>
+        </header>
+        <main>
+            <div class="container">
+                <h1>Log-In</h1>
+                <form method="post">
+                    {% csrf_token %}
+                    <h3>Insira seu nome de usuário:</h3>
+                    <input type="text" name="username">
+
+                    <h3>Insira sua senha:</h3>
+                    <input type="password" name="password">
+
+                    <button class='btn_sbmt' type="submit">Registrar</button>
+
+                </form>
+                    {% if error %}
+                        <p style="color: red;">{{ error }}</p>
+                    {% elif success %}
+                        <p style="color: green;">{{ success }}</p>
+                    {% endif %}
+            </div>
+    </main>
+</body>

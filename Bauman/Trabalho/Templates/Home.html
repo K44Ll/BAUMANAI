@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaumanAI - Home</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- ========================= HEADER ========================= -->
+<header>
+    <nav class="header-nav">
+        {% if user.is_authenticated %}
+            <span>Olá, {{ user.username }}!</span>
+            <button onclick="window.location.href='{% url 'logout' %}'">Logout</button>
+        {% else %}
+            <button onclick="window.location.href='{% url 'login' %}'">Login</button>
+            <button onclick="window.location.href='{% url 'cadastro' %}'">Registrar</button>
+        {% endif %}
+        <button onclick="window.location.href='#'">Home</button>
+        <button onclick="window.location.href='{% url 'sobre' %}'">Sobre</button>
+        <button onclick="window.location.href='{% url 'avalie' %}'">Avalie-nos</button>
+        <button onclick="window.location.href='{% url 'chat' %}'">Chat</button>
+    </nav>
+</header>
+
+
+    <!-- ========================= MAIN ========================= -->
+    <main>
+        <!-- ========================= APRESENTAÇÃO DA IA ========================= -->
+        <section class="intro-ia">
+            <h1>BaumanAI</h1>
+            <p>Bem-vindo ao <strong>BaumanAI</strong>, a inteligência artificial que revive o pensamento do filósofo Zygmunt Bauman.</p>
+            <p>Explore reflexões sobre sociedade, modernidade líquida e ética, conectando filosofia e tecnologia de forma inovadora.</p>
+            <div class="intro-actions">
+                <button onclick="window.location.href='{% url 'chat' %}'">Começar a Conversar</button>
+            </div>
+        </section>
+
+        <!-- ========================= FUNCIONALIDADES ========================= -->
+        <section class="info-ia">
+            <h2>O que você pode fazer</h2>
+            <div class="features">
+                <article class="feature-card">
+                    <h3>Explorar ideias</h3>
+                    <p>Receba análises sobre sociedade contemporânea, globalização e mudanças culturais.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Questionar conceitos</h3>
+                    <p>Debata temas filosóficos e receba respostas inspiradas nos pensamentos de Bauman.</p>
+                </article>
+                <article class="feature-card">
+                    <h3>Aprender continuamente</h3>
+                    <p>BaumanAI se atualiza com novas referências para enriquecer suas respostas.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================= FOOTER ========================= -->
+    <footer>
+        &copy; 2025 BaumanAI. Todos os direitos reservados.
+    </footer>
+</body>
+</html>
